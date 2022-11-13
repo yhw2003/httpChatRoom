@@ -25,13 +25,13 @@ func HtmlServer(w http.ResponseWriter, r *http.Request) {
 	defer func() { _ = fp.Close() }()
 	//init buffer
 	buf := make([]byte, 1024)
-	len := 0
+	length := 0
 	for {
 		n, readErr := fp.Read(buf)
-		len += n
+		length += n
 		if readErr == io.EOF {
-			text := string(buf[:len])
-			_, _ = fmt.Fprintf(w, text)
+			text := string(buf[:length])
+			_, _ = fmt.Fprint(w, text)
 			break
 		}
 	}
