@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 )
 
 func HtmlServer(w http.ResponseWriter, r *http.Request) {
@@ -31,6 +32,9 @@ func HtmlServer(w http.ResponseWriter, r *http.Request) {
 		length += n
 		if readErr == io.EOF {
 			text := string(buf[:length])
+			if strings.HasSuffix(requireFile, ".css") {
+				w.Header().Add("Content-Type", "text/css;charset=utf-8")
+			}
 			_, _ = fmt.Fprint(w, text)
 			break
 		}
