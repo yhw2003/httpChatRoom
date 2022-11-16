@@ -11,6 +11,8 @@ import (
 
 const max = 50
 
+var roomCnt = 0
+
 func main() {
 	diction := [max]string{""}
 	isUsed := [max]bool{false}
@@ -44,8 +46,10 @@ func main() {
 		//answer the client
 		_, _ = fmt.Fprintf(w, uuid)
 	})
-
-	http.HandleFunc("/need/", backend.HtmlServer)
+	http.HandleFunc("/getDates", func(w http.ResponseWriter, r *http.Request) {
+		backend.Dates(w, r, roomCnt)
+	})
+	http.HandleFunc("/need/", backend.Start)
 
 	//start services
 	_ = http.ListenAndServe(":18080", nil)

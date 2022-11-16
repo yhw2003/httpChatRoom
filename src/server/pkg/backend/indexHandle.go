@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func HtmlServer(w http.ResponseWriter, r *http.Request) {
+func Start(w http.ResponseWriter, r *http.Request) {
 	//init file path
 	_url := r.RequestURI
 	requireFile := _url[6:len(_url)]
@@ -40,4 +40,8 @@ func HtmlServer(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
+}
+
+func Dates(w http.ResponseWriter, r *http.Request, roomCnt int) {
+	_, _ = fmt.Fprintf(w, "{\"roomCnt\":%d}", roomCnt)
 }

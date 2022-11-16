@@ -1,10 +1,32 @@
-#head {
-    background: aquamarine;
-    height: 70%;
-    width: 70%;
-    text-align: center;
-    /*align-co;*/
+#box {
+    width: 600px;
+    height: 800px;
+    border: 1px solid #000000;
+    position: relative;
+    left: 50%;
+    margin: 50px 0 0 -300px;
 }
-p {
+#hello {
     text-align: center;
+    margin: auto;
+}
+
+#box_in_1 {
+    width: 200px;
+    height: 20px;
+    background: aqua;
+    position: relative;
+    border: rgba(20, 234, 180, 0.86) solid 5px;
+    border-radius: 10px;
+    top: 0;
+    left: 50%;
+    margin: 0 0 0 -100px;
+}
+
+.Rooms {
+    position: relative;
+    height: 55px;
+    width: 100%;
+    border-top: #75a6d3 5px solid;
+    background: antiquewhite;
 }
